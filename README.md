@@ -29,7 +29,7 @@ with-love-and-yarn-by-m/
 │
 ├── backend/
 ├── frontend/
-├── admin-panel/
+├── admin/
 └── README.md
 ```
 
