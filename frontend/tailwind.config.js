@@ -18,10 +18,25 @@ export default {
         deepRose: "#C97080",
         textMain: "#4A3840",
         textLight: "#8A7080",
+        primary: "#D9C9E8",
+        secondary: "#C3AADC",
+        tertiary: "#996883",
+        neutralBg: "#FBF4FF"
       },
       fontFamily: {
         serif: ["Playfair Display", "serif"],
         sans: ["Lato", "sans-serif"],
+      },
+      animation: {
+        'float': 'float 6s ease-in-out infinite',
+        'float-del': 'float 6s ease-in-out 3s infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0) translateX(0)' },
+          '33%': { transform: 'translateY(-15px) translateX(5px)' },
+          '66%': { transform: 'translateY(5px) translateX(-5px)' },
+        }
       }
     },
   },

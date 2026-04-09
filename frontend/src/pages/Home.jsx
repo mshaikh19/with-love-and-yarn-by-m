@@ -1,31 +1,30 @@
 import Navbar from "../components/common/Navbar";
 import HeroSection from "../components/home/HeroSection";
+import CategorySection from "../components/home/CategorySection";
+import BlogSection from "../components/home/BlogSection";
 import FeaturedSection from "../components/home/FeaturedSection";
 import PromoSection from "../components/home/PromoSection";
-import InfoSection from "../components/home/InfoSection";
-import WaveDivider from "../components/ui/WaveDivider";
+import TestimonialSection from "../components/home/TestimonialSection";
+import Footer from "../components/common/Footer";
 
 export default function Home() {
   return (
-    <div className="bg-[#1f1f1f] min-h-screen">
-
-      {/* Navbar */}
+    <div className="bg-neutralBg min-h-screen font-sans text-textMain pb-20">
       <Navbar />
 
-      {/* MAIN CONTENT */}
-      <main className="pt-18">
+      <HeroSection />
 
-        <HeroSection />
-        <FeaturedSection />
+      <CategorySection />
 
-        <WaveDivider />
+      <BlogSection />
 
-        <PromoSection />
+      <FeaturedSection />
 
-        <InfoSection />
+      <PromoSection />
 
-      </main>
+      <TestimonialSection />
 
+      <Footer />
     </div>
   );
 }

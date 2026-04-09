@@ -1,123 +1,49 @@
 export default function HeroSection() {
   return (
-    <section className="bg-blush h-screen flex items-center">
-
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
-        <div className="flex justify-center items-center">
-          <div className="w-[320px] h-[320px] md:w-[420px] md:h-[420px]">
-            <svg viewBox="0 0 670 670" className="w-full h-full">
-              <defs>
-                <clipPath id="smoothBumps">
-                
-                <rect x="100" y="100" width="500" height="500" fill="#8ECFC4" />
-
-                <circle cx="125" cy="100" r="80" fill="#E8A0AE" />
-                <circle cx="280" cy="100" r="80" fill="#E8A0AE" />
-                <circle cx="435" cy="100" r="80" fill="#E8A0AE" />
-                <circle cx="590" cy="100" r="80" fill="#E8A0AE" />
-
-                
-                <circle cx="125" cy="255" r="80" fill="#E8A0AE" />
-                <circle cx="125" cy="410" r="80" fill="#E8A0AE" />
-                <circle cx="125" cy="565" r="80" fill="#E8A0AE" />
-                
-                <circle cx="590" cy="255" r="80" fill="#E8A0AE" />
-                <circle cx="590" cy="410" r="80" fill="#E8A0AE" />
-                <circle cx="590" cy="565" r="80" fill="#E8A0AE" />
-                
-                <circle cx="280" cy="565" r="80" fill="#E8A0AE" />
-                <circle cx="435" cy="565" r="80" fill="#E8A0AE" />
-                </clipPath>
-              </defs>
-              
-              <image
-                href="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519"
-                width="670"
-                height="670"
-                preserveAspectRatio="xMidYMid slice"
-                clipPath="url(#smoothBumps)"
-              />
-
-            </svg>
-          </div>
+    <section className="pt-32 pb-16 px-6 max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div className="space-y-6">
+        <p className="text-xs tracking-widest text-[#8A7080] uppercase">With Love & Yarn By M</p>
+        <h1 className="font-serif text-5xl md:text-7xl italic font-bold text-[#4A3840] leading-tight">
+          Handcrafted <br /> with <br /> Love & Yarn
+        </h1>
+        <p className="text-[#8A7080] text-sm md:text-base max-w-md leading-relaxed mt-4">
+          Discover our hand-crafted, beautifully designed crochet and knit products.
+          Each piece is lovingly created from premium materials.
+        </p>
+        <div className="flex gap-4 pt-4">
+          <button className="bg-[#60556A] text-white px-8 py-3 rounded-full text-sm hover:opacity-90 transition">
+            Shop Now
+          </button>
+          <button className="bg-primary text-[#60556A] px-8 py-3 rounded-full text-sm font-medium hover:opacity-90 transition">
+            Explore Collection
+          </button>
         </div>
-
-        <div className="text-center md:text-left max-w-md mx-auto md:mx-0">
-          <h1 className="
-            font-serif
-            text-4xl sm:text-5xl md:text-6xl
-            text-textMain
-            leading-tight
-          ">
-            Crafted in yarn, 
-            Carried with Love
-          </h1>
-
-          <div className="mt-8 space-y-4">
-            <p className="
-              text-xs md:text-sm
-              tracking-[0.2em]
-              uppercase
-              text-textLight
-            ">
-              Handcrafted crochet pieces
-              made with warmth & care
-            </p>
-
-            <p className="
-              text-xs md:text-sm
-              tracking-[0.2em]
-              uppercase
-              text-textLight
-            ">
-              Patterns • Tutorials • Handmade Creations
-            </p>
-          </div>
-
-          <div className="mt-10">
-            <button className="
-              text-xs md:text-sm
-              tracking-[0.2em]
-              uppercase
-              text-textMain
-              hover:text-rose
-              transition
-            ">
-              Explore now →
-            </button>
-          </div>
-
-        </div>
-
-        {/* 🎀 RESPONSIVE FULL-WIDTH RIBBON */}
-        <div className="absolute bottom-0 left-0 w-full">
-
-          <div className="
-            w-full
-            bg-butter
-            text-textMain
-            text-[10px] sm:text-[11px] md:text-xs
-            tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.25em]
-            uppercase
-            text-center
-            py-5 sm:py-6 md:py-7
-            px-5 sm:px-8 md:px-12
-            border-t border-white/40
-            shadow-[0_-5px_20px_rgba(0,0,0,0.05)]
-          ">
-
-            <span className="block leading-relaxed">
-              Handmade crochet pieces crafted with love & care
-            </span>
-
-          </div>
-
-        </div>
-        
       </div>
 
+      <div className="relative h-[500px] w-full mt-10 md:mt-0 flex justify-center items-center">
+        {/* Clean transparent background */}
+
+        {/* Main Image (Octopus) - enlarged size */}
+        <img
+          src="/hero_main_1775737341179.png"
+          alt="Crochet Toys"
+          className="absolute top-12 right-12 w-[65%] h-[75%] object-cover rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] z-10 transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl cursor-pointer"
+        />
+
+        {/* Top Left Floating Image - active floating animation */}
+        <img
+          src="/hero_small_2_1775737375511.png"
+          alt="Purple Yarn"
+          className="animate-float absolute top-8 left-10 w-36 h-36 object-cover rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.08)] z-20 transition-all duration-500 hover:scale-105 hover:shadow-xl cursor-pointer"
+        />
+
+        {/* Bottom Floating Image - delayed active floating animation */}
+        <img
+          src="/hero_small_1_1775737359124.png"
+          alt="Knitting Hands"
+          className="animate-float-del absolute bottom-8 left-16 w-40 h-40 object-cover rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.08)] z-20 transition-all duration-500 hover:scale-105 hover:shadow-xl cursor-pointer"
+        />
+      </div>
     </section>
   );
 }
-
-
