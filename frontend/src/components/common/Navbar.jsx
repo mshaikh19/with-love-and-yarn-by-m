@@ -1,172 +1,67 @@
-// import { useState } from "react";
-
-// export default function Navbar() {
-//   const [open, setOpen] = useState(false);
-
-//   return (
-//     <header className="fixed top-4 left-0 w-full z-50 flex justify-center px-3 md:my-3 sm:my-6">
-
-//       <div className="w-full max-w-6xl relative z-50 drop-shadow-[0_8px_25px_rgba(0,0,0,0.06)]">
-
-//         <div className="absolute inset-0 bg-white rounded-2xl md:rounded-full -z-10"></div>
-//         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white w-[200px] h-[75px] md:w-[250px] md:h-[90px] rounded-[3rem] overflow-hidden flex items-center justify-center z-10 shadow-sm cursor-pointer transition-transform hover:scale-[1.02] duration-300">
-//           <img
-//             src="/logo.png?v=5"
-//             alt="With Love & Yarn by M Logo"
-//             className="w-[95%] sm:w-[100%] md:w-[80%] h-auto max-w-none object-contain mix-blend-multiply transition-transform hover:scale-[1.05] duration-300"
-//             style={{ filter: "contrast(1.2) saturate(1.1)" }}
-//           />
-//         </div>
-
-//         <div className="relative px-5 md:px-6 py-4 flex items-center justify-between z-20 pointer-events-none">
-
-//           <div className="hidden md:flex gap-8 text-[13px] tracking-wider font-medium text-textLight uppercase pointer-events-auto">
-//             <NavLink label="Home" />
-//             <NavLink label="Shop" />
-//             <NavLink label="Patterns" />
-//           </div>
-
-//           <div className="w-[120px] md:w-[150px]"></div>
-
-//           <div className="hidden md:flex gap-8 text-[13px] tracking-wider font-medium text-textLight uppercase items-center pointer-events-auto">
-//             <NavLink label="Tutorials" />
-//             <NavLink label="Account" />
-//             <span className="cursor-pointer">🛒</span>
-//           </div>
-
-//           <button
-//             onClick={() => setOpen(!open)}
-//             className="md:hidden text-xl text-textMain pointer-events-auto"
-//           >
-//             ☰
-//           </button>
-
-//         </div>
-
-//         {open && (
-//           <div className="md:hidden mt-3 px-2">
-
-//             <div className="mb-4
-//               rounded-2xl
-
-//               p-6
-//               flex flex-col gap-5
-//               text-sm tracking-wide uppercase
-//               text-textMain
-//             ">
-
-//               <NavLink label="Home" />
-//               <NavLink label="Shop" />
-//               <NavLink label="Patterns" />
-//               <NavLink label="Tutorials" />
-//               <NavLink label="Account" />
-
-//               {/* Divider */}
-//               <div className="h-px bg-[#e5d6da] my-2"></div>
-
-//               <button className="
-//                 w-full py-2 rounded-full
-//                 bg-rose text-white text-xs
-//               ">
-//                 View Cart
-//               </button>
-
-//             </div>
-
-//           </div>
-//         )}
-
-
-//       </div>
-
-//     </header>
-//   );
-// }
-
-// function NavLink({ label }) {
-//   return (
-//     <a
-//       href="#"
-//       className="
-//         relative hover:text-rose transition duration-300
-//       "
-//     >
-//       {label}
-
-//       <span className="
-//         absolute left-0 -bottom-1 w-0 h-[1px]
-//         bg-rose
-//         transition-all duration-300
-//         group-hover:w-full
-//       "></span>
-//     </a>
-//   );
-// }
-
 import { useState } from "react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-4 left-0 w-full z-50 flex justify-center px-3 md:my-3 sm:my-6">
+    <header className="fixed top-0 left-0 w-full z-50 flex justify-center px-4 pt-4">
 
-      <div className="w-full max-w-6xl relative z-50">
+      {/* SOLID WHITE PILL */}
+      <div className="w-full max-w-6xl bg-white shadow-[0_4px_24px_rgba(0,0,0,0.07)] rounded-2xl md:rounded-full">
 
-        {/* ✨ TEXT LOGO (NO BACKGROUND / NO BUMP) */}
-        <div className="text-center leading-tight">
-          <h1 className="font-[WindSong] text-3xl text-[#6b3a4e]">
-            With Love & Yarn
-          </h1>
-          <p className="text-[10px] tracking-[3px] text-gray-500 uppercase">
-            by M
-          </p>
-        </div>
+        {/* MAIN NAV ROW */}
+        <div className="relative flex items-center justify-between px-6 md:px-10 py-4 md:py-6">
 
-        {/* NAV LINKS */}
-        <div className="relative px-5 md:px-6 py-4 flex items-center justify-between z-20 pointer-events-none">
-
-          <div className="hidden md:flex gap-8 text-[13px] tracking-wider font-medium text-textLight uppercase pointer-events-auto">
+          {/* LEFT LINKS — desktop only */}
+          <div className="hidden md:flex gap-6 lg:gap-8 text-[12px] lg:text-[13px] tracking-wider font-medium text-textLight uppercase">
             <NavLink label="Home" />
             <NavLink label="Shop" />
             <NavLink label="Patterns" />
           </div>
 
-          <div className="w-[120px] md:w-[150px]"></div>
-
-          <div className="hidden md:flex gap-8 text-[13px] tracking-wider font-medium text-textLight uppercase items-center pointer-events-auto">
-            <NavLink label="Tutorials" />
-            <NavLink label="Account" />
-            <span className="cursor-pointer">🛒</span>
+          {/* CENTER LOGO — on mobile takes full width, on desktop is absolute center */}
+          <div className="flex-1 md:flex-none md:absolute md:left-1/2 md:-translate-x-1/2 flex flex-col items-center leading-tight select-none cursor-pointer group">
+            <span
+              className="font-[Corinthia] text-[2rem] sm:text-[2.4rem] md:text-[2.6rem] text-[#6b3a4e] group-hover:opacity-80 transition-opacity duration-300"
+              style={{ letterSpacing: "0.02em" }}
+            >
+              With love &amp; yarn
+            </span>
+            <span className="font-['Josefin_Sans'] font-bold text-[10px] md:text-[12px] tracking-[5px] md:tracking-[6px] text-[#6b3a4e] uppercase">
+              by M
+            </span>
           </div>
 
+          {/* RIGHT LINKS — desktop only */}
+          <div className="hidden md:flex gap-6 lg:gap-8 text-[12px] lg:text-[13px] tracking-wider font-medium text-textLight uppercase items-center">
+            <NavLink label="Tutorials" />
+            <NavLink label="Account" />
+            <span className="cursor-pointer text-base" title="Cart">🛒</span>
+          </div>
+
+          {/* MOBILE: Hamburger */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden text-xl text-textMain pointer-events-auto"
+            className="md:hidden text-2xl text-[#6b3a4e] ml-2 leading-none"
+            aria-label="Toggle menu"
           >
-            ☰
+            {open ? "✕" : "☰"}
           </button>
 
         </div>
 
-        {/* MOBILE MENU */}
+        {/* MOBILE DROPDOWN */}
         {open && (
-          <div className="md:hidden mt-3 px-2">
-            <div className="mb-4 rounded-2xl p-6 flex flex-col gap-5 text-sm tracking-wide uppercase text-textMain">
-
-              <NavLink label="Home" />
-              <NavLink label="Shop" />
-              <NavLink label="Patterns" />
-              <NavLink label="Tutorials" />
-              <NavLink label="Account" />
-
-              <div className="h-px bg-[#e5d6da] my-2"></div>
-
-              <button className="w-full py-2 rounded-full bg-rose text-white text-xs">
-                View Cart
-              </button>
-
-            </div>
+          <div className="md:hidden flex flex-col gap-4 px-6 pb-6 pt-2 border-t border-[#f0e8ec] text-sm tracking-wider uppercase text-textMain">
+            <NavLink label="Home" />
+            <NavLink label="Shop" />
+            <NavLink label="Patterns" />
+            <NavLink label="Tutorials" />
+            <NavLink label="Account" />
+            <div className="h-px bg-[#e5d6da]" />
+            <button className="w-full py-2.5 rounded-full bg-[#60556A] text-white text-xs font-medium tracking-widest">
+              View Cart
+            </button>
           </div>
         )}
 
@@ -179,7 +74,7 @@ function NavLink({ label }) {
   return (
     <a
       href="#"
-      className="relative hover:text-rose transition duration-300"
+      className="relative hover:text-[#6b3a4e] transition duration-300 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1px] after:bg-[#6b3a4e] after:transition-all after:duration-300 hover:after:w-full"
     >
       {label}
     </a>

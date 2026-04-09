@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html, body {
+    background-color: #FBF4FF;
+    min-height: 100%;
+  }
+
+  #root {
+    min-height: 100vh;
+    background-color: #FBF4FF;
+  }
+}
