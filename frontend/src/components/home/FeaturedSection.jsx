@@ -1,60 +1,108 @@
+import React from 'react';
+
+const featuredItems = [
+  {
+    id: 1,
+    name: "Lavender Knit Scarf",
+    material: "100% Merino Wool",
+    price: "$64.00",
+    image: "/lavender_knit_scarf_product_1775976366355.png",
+    tall: false
+  },
+  {
+    id: 2,
+    name: "Heritage Patchwork Blanket",
+    material: "Tapestry in earth tones",
+    price: "$285.00",
+    image: "/patchwork_blanket_product_1775976384634.png",
+    tall: true
+  },
+  {
+    id: 3,
+    name: "Crocheted Market Bag",
+    material: "Sustainable carryall",
+    price: "$45.00",
+    image: "/crochet_market_bag_product_1775976401288.png",
+    tall: false
+  },
+  {
+    id: 4,
+    name: "Knit Toy Puppy",
+    material: "Organic cotton",
+    price: "$42.00",
+    image: "/knit_toy_puppy_product_1775976418335.png",
+    tall: false
+  },
+  {
+    id: 5,
+    name: "Children's Cardigan",
+    material: "French lace collar",
+    price: "$58.00",
+    image: "/children_lace_cardigan_product_1775976435532.png",
+    tall: false
+  }
+];
+
 export default function FeaturedSection() {
   return (
-    <section className="py-20 px-6 max-w-6xl mx-auto">
-      <div className="text-center mb-12">
-         <p className="text-xs tracking-widest text-[#8A7080] uppercase mb-2">Hand Picked Itmes</p>
-         <h2 className="font-serif text-4xl italic text-[#4A3840]">Featured Highlights</h2>
-      </div>
+    <section className="bg-white/30 relative lg:h-[95vh] flex flex-col justify-center py-8 md:py-16 px-6 overflow-hidden">
+      <div className="max-w-7xl mx-auto w-full relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 gap-6">
+          <div className="max-w-xl">
+            <span className="inline-block text-tertiary font-bold tracking-[0.3em] uppercase text-[9px] mb-3">Curated Selection</span>
+            <h2 className="text-4xl md:text-5xl font-serif italic text-textMain leading-tight">
+              Featured <span className="text-deepRose">Highlights</span>
+            </h2>
+          </div>
+          <button className="flex items-center gap-2 group text-xs font-bold text-textMain uppercase tracking-widest transition-all hover:text-deepRose">
+            Browse All Keepsakes
+            <span className="w-8 h-[1px] bg-textMain group-hover:w-12 group-hover:bg-deepRose transition-all" />
+          </button>
+        </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-6 auto-rows-[250px]">
-        {/* Card 1 */}
-        <div className="bg-white rounded-xl overflow-hidden shadow-sm flex flex-col items-center">
-          <img src="https://images.unsplash.com/photo-1584992236310-6edddc08acff?auto=format&fit=crop&q=80&w=400" className="w-full h-40 object-cover" />
-          <div className="p-4 w-full text-left">
-             <h4 className="font-serif italic text-lg text-[#4A3840]">Lavender Knit Scarf</h4>
-             <p className="text-[10px] text-[#8A7080]">100% Merino Wool</p>
-             <p className="text-sm font-medium mt-1">$64.00</p>
-          </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 auto-rows-[180px] md:auto-rows-[200px] lg:auto-rows-[260px]">
+          {featuredItems.map((item) => (
+            <div
+              key={item.id}
+              className={`group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-lavender/20 transition-all duration-500 border border-tertiary/5 relative flex flex-col ${item.tall ? 'row-span-2' : ''}`}
+            >
+              <div className="relative flex-grow overflow-hidden">
+                <img
+                  src={item.image}
+                  className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110`}
+                  alt={item.name}
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500" />
+
+                {/* Quick Add Button */}
+                <button className="absolute bottom-4 right-4 translate-y-12 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-textMain hover:bg-deepRose hover:text-white">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
+                  </svg>
+                </button>
+              </div>
+
+              <div className={`p-4 md:p-6 w-full text-left bg-white/80 backdrop-blur-sm border-t border-tertiary/5 transition-colors group-hover:bg-white`}>
+                <div className="flex justify-between items-start gap-2">
+                  <div>
+                    <h4 className="font-serif italic text-base md:text-xl text-textMain leading-snug group-hover:text-deepRose transition-colors">
+                      {item.name}
+                    </h4>
+                    <p className="text-[10px] md:text-[11px] text-textLight font-medium mt-1 tracking-wide">
+                      {item.material}
+                    </p>
+                  </div>
+                  <p className="text-sm md:text-base font-bold text-textMain mt-1 font-serif">
+                    {item.price}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-        {/* Card 2 - Taller */}
-        <div className="bg-white rounded-xl overflow-hidden shadow-sm flex flex-col items-center row-span-2">
-          <img src="https://images.unsplash.com/photo-1580828369062-8e7ac742fba4?auto=format&fit=crop&q=80&w=500" className="w-full h-[380px] object-cover" />
-          <div className="p-4 w-full text-left">
-             <h4 className="font-serif italic text-lg text-[#4A3840]">Heritage Patchwork Blanket</h4>
-             <p className="text-[10px] text-[#8A7080]">Tapestry in earth tones</p>
-             <p className="text-sm font-medium mt-1">$285.00</p>
-          </div>
-        </div>
-        {/* Card 3 */}
-        <div className="bg-white rounded-xl overflow-hidden shadow-sm flex flex-col items-center">
-          <img src="https://images.unsplash.com/photo-1590874558552-32a76f2f2da4?auto=format&fit=crop&q=80&w=400" className="w-full h-40 object-cover" />
-          <div className="p-4 w-full text-left">
-             <h4 className="font-serif italic text-lg text-[#4A3840]">Crocheted Market Bag</h4>
-             <p className="text-[10px] text-[#8A7080]">Sustainable carryall</p>
-             <p className="text-sm font-medium mt-1">$45.00</p>
-          </div>
-        </div>
-        {/* Card 4 */}
-        <div className="bg-white rounded-xl overflow-hidden shadow-sm flex flex-col items-center">
-          <div className="w-full h-40 bg-[#1A2530] flex items-center justify-center overflow-hidden">
-             <img src="https://images.unsplash.com/photo-1558500295-e2e5e1a383d4?auto=format&fit=crop&q=80&w=400" className="max-w-[70%] max-h-[90%] object-cover rounded" />
-          </div>
-          <div className="p-4 w-full text-left">
-             <h4 className="font-serif italic text-lg text-[#4A3840]">Knit Toy Puppy</h4>
-             <p className="text-[10px] text-[#8A7080]">Organic cotton</p>
-             <p className="text-sm font-medium mt-1">$42.00</p>
-          </div>
-        </div>
-        {/* Card 5 */}
-        <div className="bg-white rounded-xl overflow-hidden shadow-sm flex flex-col items-center">
-          <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&q=80&w=400" className="w-full h-40 object-cover" />
-          <div className="p-4 w-full text-left">
-             <h4 className="font-serif italic text-lg text-[#4A3840]">Children's Lace Cardigan</h4>
-             <p className="text-[10px] text-[#8A7080]">French lace collar</p>
-             <p className="text-sm font-medium mt-1">$58.00</p>
-          </div>
-        </div>
+
       </div>
     </section>
   );
 }
+

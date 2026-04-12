@@ -33,7 +33,7 @@ const categories = [
 
 export default function CategorySection() {
   return (
-    <section className="py-20 px-6 max-w-6xl mx-auto text-center">
+    <section className="py-10 px-6 max-w-6xl mx-auto text-center">
       <p className="text-xs tracking-widest text-[#8A7080] uppercase mb-2">Find your style</p>
       <h2 className="font-serif text-4xl italic text-[#4A3840] mb-12">Browse by Category</h2>
 
