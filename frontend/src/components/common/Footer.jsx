@@ -114,9 +114,9 @@ export default function Footer() {
                      <ul className="space-y-3">
                         {col.links.map(link => (
                            <li key={link}>
-                              <a href="#" className="text-textLight hover:text-deepRose transition-colors duration-300 text-[12px] font-medium">
+                              <Link to="/shop" className="text-textLight hover:text-deepRose transition-colors duration-300 text-[12px] font-medium">
                                  {link}
-                              </a>
+                              </Link>
                            </li>
                         ))}
                      </ul>

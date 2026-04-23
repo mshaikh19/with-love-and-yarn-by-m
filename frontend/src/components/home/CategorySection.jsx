@@ -1,3 +1,6 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
 const categories = [
   {
     label: "Clothing",
@@ -39,7 +42,8 @@ export default function CategorySection() {
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
         {categories.map(({ label, img, bg }) => (
-          <div
+          <Link
+            to="/shop"
             key={label}
             className={`relative group rounded-3xl overflow-hidden ${bg} shadow-sm flex flex-col items-center justify-center p-4 aspect-square cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1`}
           >
@@ -59,7 +63,7 @@ export default function CategorySection() {
                 {label}
               </span>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

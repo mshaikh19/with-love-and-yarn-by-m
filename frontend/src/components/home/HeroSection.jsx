@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function HeroSection() {
   return (
     <section className="min-h-screen flex items-center pt-28 pb-16 px-6 md:px-10 max-w-7xl mx-auto">
@@ -16,14 +18,16 @@ export default function HeroSection() {
             Each piece is lovingly created from premium materials.
           </p>
           <div className="flex gap-4 pt-2 justify-center md:justify-start flex-wrap">
-            <button className="bg-[#60556A] text-white px-7 py-3 rounded-full text-sm font-medium hover:opacity-90 hover:scale-[1.02] transition-all duration-300">
+            <Link to="/shop" className="bg-[#6B3A4E] text-white px-7 py-3 rounded-full text-sm font-medium hover:opacity-90 hover:scale-[1.02] transition-all duration-300 shadow-md">
               Shop Now
-            </button>
-            <button className="bg-primary text-[#60556A] px-7 py-3 rounded-full text-sm font-medium hover:opacity-90 hover:scale-[1.02] transition-all duration-300 border border-[#e5d6da]">
+            </Link>
+            <Link to="/shop" className="bg-white text-[#6B3A4E] px-7 py-3 rounded-full text-sm font-medium hover:opacity-90 hover:scale-[1.02] transition-all duration-300 border border-[#e5d6da] shadow-sm">
               Explore Collection
-            </button>
+            </Link>
           </div>
         </div>
+        
+        {/* ... (rest of the HeroSection images) */}
 
         {/* ✦ RIGHT / BELOW: IMAGE COLLAGE — same layout as desktop, scaled per breakpoint */}
         <div className="relative

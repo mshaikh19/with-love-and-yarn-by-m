@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 export default function PromoSection() {
    return (
@@ -25,7 +26,7 @@ export default function PromoSection() {
                   </p>
 
                   <div className="flex flex-col sm:flex-row gap-4">
-                     <button className="group relative px-8 py-4 overflow-hidden rounded-full bg-textMain text-white text-[10px] font-black tracking-[0.2em] uppercase transition-all shadow-lg hover:shadow-textMain/20">
+                     <Link to="/shop" className="group relative px-8 py-4 overflow-hidden rounded-full bg-textMain text-white text-[10px] font-black tracking-[0.2em] uppercase transition-all shadow-lg hover:shadow-textMain/20">
                         <span className="relative z-10 flex items-center gap-2">
                            View All Patterns
                            <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -33,18 +34,18 @@ export default function PromoSection() {
                            </svg>
                         </span>
                         <div className="absolute inset-0 bg-deepRose scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                     </button>
+                     </Link>
 
-                     <button className="px-8 py-4 text-textMain text-[10px] font-black tracking-[0.2em] uppercase hover:text-deepRose transition-colors">
+                     <Link to="/shop" className="px-8 py-4 text-textMain text-[10px] font-black tracking-[0.2em] uppercase hover:text-deepRose transition-colors">
                         Free Tutorial →
-                     </button>
+                     </Link>
                   </div>
                </div>
 
                {/* Image Column */}
                <div className="md:w-7/12 relative min-h-[400px] md:min-h-full">
                   <img
-                     src="/guided_patterns_promo_featured_1775977156589.png"
+                     src="/artifacts/guided_patterns_promo_featured_1775977156589.png"
                      className="absolute inset-0 w-full h-full object-cover"
                      alt="Guided knitting pattern and yarn"
                   />

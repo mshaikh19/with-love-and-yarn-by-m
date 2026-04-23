@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const featuredItems = [
   {
@@ -6,15 +7,15 @@ const featuredItems = [
     name: "Lavender Knit Scarf",
     material: "100% Merino Wool",
     price: "$64.00",
-    image: "/lavender_knit_scarf_product_1775976366355.png",
+    image: "/artifacts/lavender_knit_scarf_product_1775976366355.png",
     tall: false
   },
   {
     id: 2,
     name: "Heritage Patchwork Blanket",
     material: "Tapestry in earth tones",
-    price: "$285.00",
-    image: "/patchwork_blanket_product_1775976384634.png",
+    price: "$artifacts/patchwork_blanket_product_1775976384634.png",
+    image: "/artifacts/patchwork_blanket_product_1775976384634.png",
     tall: true
   },
   {
@@ -22,7 +23,7 @@ const featuredItems = [
     name: "Crocheted Market Bag",
     material: "Sustainable carryall",
     price: "$45.00",
-    image: "/crochet_market_bag_product_1775976401288.png",
+    image: "/artifacts/crochet_market_bag_product_1775976401288.png",
     tall: false
   },
   {
@@ -30,7 +31,7 @@ const featuredItems = [
     name: "Knit Toy Puppy",
     material: "Organic cotton",
     price: "$42.00",
-    image: "/knit_toy_puppy_product_1775976418335.png",
+    image: "/artifacts/knit_toy_puppy_product_1775976418335.png",
     tall: false
   },
   {
@@ -38,7 +39,7 @@ const featuredItems = [
     name: "Children's Cardigan",
     material: "French lace collar",
     price: "$58.00",
-    image: "/children_lace_cardigan_product_1775976435532.png",
+    image: "/artifacts/children_lace_cardigan_product_1775976435532.png",
     tall: false
   }
 ];
@@ -54,15 +55,16 @@ export default function FeaturedSection() {
               Featured <span className="text-deepRose">Highlights</span>
             </h2>
           </div>
-          <button className="flex items-center gap-2 group text-xs font-bold text-textMain uppercase tracking-widest transition-all hover:text-deepRose">
+          <Link to="/shop" className="flex items-center gap-2 group text-xs font-bold text-textMain uppercase tracking-widest transition-all hover:text-deepRose">
             Browse All Keepsakes
             <span className="w-8 h-[1px] bg-textMain group-hover:w-12 group-hover:bg-deepRose transition-all" />
-          </button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 auto-rows-[180px] md:auto-rows-[200px] lg:auto-rows-[260px]">
           {featuredItems.map((item) => (
-            <div
+            <Link
+              to="/shop"
               key={item.id}
               className={`group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-lavender/20 transition-all duration-500 border border-tertiary/5 relative flex flex-col ${item.tall ? 'row-span-2' : ''}`}
             >
@@ -97,7 +99,7 @@ export default function FeaturedSection() {
                   </p>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
@@ -105,4 +107,3 @@ export default function FeaturedSection() {
     </section>
   );
 }
-
