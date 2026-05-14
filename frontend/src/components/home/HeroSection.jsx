@@ -7,13 +7,13 @@ export default function HeroSection() {
 
         {/* ✦ LEFT: TEXT CONTENT — always first on all screen sizes */}
         <div className="space-y-5 text-center md:text-left">
-          <p className="text-[11px] tracking-[4px] text-[#8A7080] uppercase">
+          <p className="text-[11px] tracking-[4px] text-[#6B3A4E] font-bold uppercase">
             With Love &amp; Yarn By M
           </p>
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl italic font-bold text-[#4A3840] leading-tight">
             Handcrafted<br />with<br />Love &amp; Yarn
           </h1>
-          <p className="text-[#8A7080] text-sm md:text-base max-w-sm md:max-w-md mx-auto md:mx-0 leading-relaxed">
+          <p className="text-[#4A3840] text-sm md:text-base max-w-sm md:max-w-md mx-auto md:mx-0 leading-relaxed">
             Discover our hand-crafted, beautifully designed crochet and knit products.
             Each piece is lovingly created from premium materials.
           </p>

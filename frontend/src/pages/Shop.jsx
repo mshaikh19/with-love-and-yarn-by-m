@@ -94,7 +94,7 @@ const Shop = () => {
           <h1 className="font-serif text-5xl md:text-7xl italic text-tertiary leading-[1.1] mb-8 tracking-tight max-w-3xl">
             The Modern Weaver
           </h1>
-          <p className="text-textLight text-sm md:text-base font-light leading-relaxed max-w-xl mx-auto opacity-70">
+          <p className="text-[#4A3840] text-sm md:text-base font-light leading-relaxed max-w-xl mx-auto">
             A curated selection of hand-knitted heirlooms, where traditional craftsmanship meets minimalist contemporary silhouettes.
           </p>
         </section>

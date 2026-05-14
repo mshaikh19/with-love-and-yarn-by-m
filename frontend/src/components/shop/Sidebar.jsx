@@ -78,7 +78,7 @@ const Sidebar = () => {
 
         {/* Sort By (Minimalist Style) */}
         <div className="space-y-4 mb-10 relative">
-          <h5 className="text-xs font-black uppercase tracking-[0.25em] text-tertiary opacity-40">
+          <h5 className="text-xs font-black uppercase tracking-[0.25em] text-[#6B3A4E]">
             Sort By
           </h5>
           <div
@@ -111,7 +111,7 @@ const Sidebar = () => {
 
         {/* Categories */}
         <div className="space-y-6">
-          <h5 className="text-xs font-black uppercase tracking-[0.25em] text-tertiary opacity-40">
+          <h5 className="text-xs font-black uppercase tracking-[0.25em] text-[#6B3A4E]">
             Categories
           </h5>
           <ul className="space-y-4">
@@ -135,7 +135,7 @@ const Sidebar = () => {
 
       {/* Materials (Custom Circle Checkboxes) */}
       <div className="space-y-6">
-        <h5 className="text-xs font-black uppercase tracking-[0.25em] text-tertiary opacity-40">
+        <h5 className="text-xs font-black uppercase tracking-[0.25em] text-[#6B3A4E]">
           Material
         </h5>
         <div className="space-y-4">
@@ -164,7 +164,7 @@ const Sidebar = () => {
 
       {/* Price Range */}
       <div className="space-y-6">
-        <h5 className="text-xs font-black uppercase tracking-[0.25em] text-tertiary opacity-40">
+        <h5 className="text-xs font-black uppercase tracking-[0.25em] text-[#6B3A4E]">
           Price Range
         </h5>
         <div className="px-1 mt-2">
@@ -238,7 +238,7 @@ const Sidebar = () => {
 
       {/* Palette */}
       <div className="space-y-6">
-        <h5 className="text-xs font-black uppercase tracking-[0.25em] text-tertiary opacity-40">
+        <h5 className="text-xs font-black uppercase tracking-[0.25em] text-[#6B3A4E]">
           Palette
         </h5>
         <div className="flex flex-wrap gap-4 pl-4">

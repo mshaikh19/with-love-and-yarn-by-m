@@ -57,7 +57,7 @@ const ProductCard = ({ product }) => {
             <h3 className="font-serif text-xl italic text-tertiary leading-tight group-hover:text-deepRose transition-colors duration-300">
               {product.name}
             </h3>
-            <p className="text-[9px] font-bold text-textLight uppercase tracking-[0.15em] opacity-40 mt-0.5">
+            <p className="text-[9px] font-bold text-[#8A7080] uppercase tracking-[0.15em] mt-0.5">
               Hand-finished • Studio Edit
             </p>
           </div>
@@ -66,7 +66,7 @@ const ProductCard = ({ product }) => {
           </span>
         </div>
         
-        <p className="text-[11px] leading-relaxed text-textLight opacity-60 font-light max-w-[95%]">
+        <p className="text-[11px] leading-relaxed text-[#5C4A52] font-light max-w-[95%]">
           {product.description}
         </p>
 

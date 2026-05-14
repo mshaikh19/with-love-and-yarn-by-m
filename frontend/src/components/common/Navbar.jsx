@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -17,7 +17,7 @@ export default function Navbar() {
           <div className="hidden md:flex gap-6 lg:gap-8 text-[12px] lg:text-[13px] tracking-wider font-medium text-textLight uppercase">
             <NavLink to="/" label="Home" />
             <NavLink to="/shop" label="Shop" />
-            <NavLink to="/shop" label="Patterns" />
+            <NavLink to="/patterns" label="Patterns" />
           </div>
 
           {/* CENTER LOGO */}
@@ -35,8 +35,8 @@ export default function Navbar() {
 
           {/* RIGHT LINKS — desktop only */}
           <div className="hidden md:flex gap-6 lg:gap-8 text-[12px] lg:text-[13px] tracking-wider font-medium text-textLight uppercase items-center">
-            <NavLink to="/shop" label="Tutorials" />
-            <NavLink to="/shop" label="Account" />
+            <NavLink to="/patterns" label="Tutorials" disableActive />
+            <NavLink to="/shop" label="Account" disableActive />
             <span className="cursor-pointer text-base" title="Cart">🛒</span>
           </div>
 
@@ -56,9 +56,9 @@ export default function Navbar() {
           <div className="md:hidden flex flex-col gap-4 px-6 pb-6 pt-2 border-t border-[#f0e8ec] text-sm tracking-wider uppercase text-textMain">
             <NavLink to="/" label="Home" onClick={() => setOpen(false)} />
             <NavLink to="/shop" label="Shop" onClick={() => setOpen(false)} />
-            <NavLink to="/shop" label="Patterns" onClick={() => setOpen(false)} />
-            <NavLink to="/shop" label="Tutorials" onClick={() => setOpen(false)} />
-            <NavLink to="/shop" label="Account" onClick={() => setOpen(false)} />
+            <NavLink to="/patterns" label="Patterns" onClick={() => setOpen(false)} />
+            <NavLink to="/patterns" label="Tutorials" disableActive onClick={() => setOpen(false)} />
+            <NavLink to="/shop" label="Account" disableActive onClick={() => setOpen(false)} />
             <div className="h-px bg-[#e5d6da]" />
             <button className="w-full py-2.5 rounded-full bg-[#6B3A4E] text-white text-xs font-medium tracking-widest">
               View Cart
@@ -71,12 +71,27 @@ export default function Navbar() {
   );
 }
 
-function NavLink({ to, label, onClick }) {
+function NavLink({ to, label, onClick, disableActive = false }) {
+  const { pathname } = useLocation();
+
+  // Active only if this link is the canonical one for this route
+  const isActive =
+    !disableActive &&
+    (to === "/"
+      ? pathname === "/"
+      : pathname === to || pathname.startsWith(to + "/"));
+
   return (
     <Link
       to={to}
       onClick={onClick}
-      className="relative hover:text-[#6b3a4e] transition duration-300 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1px] after:bg-[#6b3a4e] after:transition-all after:duration-300 hover:after:w-full"
+      className={`relative transition duration-300
+        after:absolute after:left-0 after:-bottom-1 after:h-[1.5px] after:bg-[#6b3a4e] after:transition-all after:duration-300
+        ${
+          isActive
+            ? "text-[#6b3a4e] font-semibold after:w-full"
+            : "hover:text-[#6b3a4e] after:w-0 hover:after:w-full"
+        }`}
     >
       {label}
     </Link>
