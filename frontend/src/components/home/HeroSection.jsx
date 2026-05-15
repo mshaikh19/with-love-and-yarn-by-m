@@ -7,26 +7,26 @@ export default function HeroSection() {
 
         {/* ✦ LEFT: TEXT CONTENT — always first on all screen sizes */}
         <div className="space-y-5 text-center md:text-left">
-          <p className="text-[11px] tracking-[4px] text-[#6B3A4E] font-bold uppercase">
+          <p className="text-[11px] tracking-[4px] text-tertiary font-bold uppercase">
             With Love &amp; Yarn By M
           </p>
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl italic font-bold text-[#4A3840] leading-tight">
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl italic font-bold text-textMain leading-tight">
             Handcrafted<br />with<br />Love &amp; Yarn
           </h1>
-          <p className="text-[#4A3840] text-sm md:text-base max-w-sm md:max-w-md mx-auto md:mx-0 leading-relaxed">
+          <p className="text-textMain text-sm md:text-base max-w-sm md:max-w-md mx-auto md:mx-0 leading-relaxed">
             Discover our hand-crafted, beautifully designed crochet and knit products.
             Each piece is lovingly created from premium materials.
           </p>
           <div className="flex gap-4 pt-2 justify-center md:justify-start flex-wrap">
-            <Link to="/shop" className="bg-[#6B3A4E] text-white px-7 py-3 rounded-full text-sm font-medium hover:opacity-90 hover:scale-[1.02] transition-all duration-300 shadow-md">
+            <Link to="/shop" className="bg-tertiary text-white px-7 py-3 rounded-full text-sm font-medium hover:opacity-90 hover:scale-[1.02] transition-all duration-300 shadow-md">
               Shop Now
             </Link>
-            <Link to="/shop" className="bg-white text-[#6B3A4E] px-7 py-3 rounded-full text-sm font-medium hover:opacity-90 hover:scale-[1.02] transition-all duration-300 border border-[#e5d6da] shadow-sm">
+            <Link to="/shop" className="bg-white text-tertiary px-7 py-3 rounded-full text-sm font-medium hover:opacity-90 hover:scale-[1.02] transition-all duration-300 border border-[#e5d6da] shadow-sm">
               Explore Collection
             </Link>
           </div>
         </div>
-        
+
         {/* ... (rest of the HeroSection images) */}
 
         {/* ✦ RIGHT / BELOW: IMAGE COLLAGE — same layout as desktop, scaled per breakpoint */}

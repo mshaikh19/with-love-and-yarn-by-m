@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SkeletonCard from '../shop/SkeletonCard';
 
 export default function PatternGrid({ hideHeader = false, hideViewAllButton = false }) {
   const [filter, setFilter] = useState('All');
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 1200);
+    return () => clearTimeout(timer);
+  }, []);
 
   const patterns = [
     {
@@ -107,7 +114,10 @@ export default function PatternGrid({ hideHeader = false, hideViewAllButton = fa
 
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredPatterns.map(pattern => (
+        {isLoading ? (
+          [...Array(3)].map((_, i) => <SkeletonCard key={i} />)
+        ) : (
+          filteredPatterns.map(pattern => (
           <Link key={pattern.id} to={`/patterns/${pattern.slug}`} className="group bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-tertiary/5 hover:border-tertiary/20 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col cursor-pointer">
             <div className="relative h-72 bg-[#F8F6F4] overflow-hidden">
               <div className="absolute top-4 left-4 z-10 flex gap-2">
@@ -135,7 +145,7 @@ export default function PatternGrid({ hideHeader = false, hideViewAllButton = fa
               </div>
             </div>
           </Link>
-        ))}
+        )))}
       </div>
 
       {/* Pagination */}

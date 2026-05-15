@@ -3,13 +3,109 @@
 @tailwind utilities;
 
 @layer base {
-  html, body {
-    background-color: #FBF4FF;
+
+  html,
+  body {
+    background-color: theme('colors.neutralBg');
     min-height: 100%;
+    width: 100%;
+  }
+
+  /* ── CUSTOM AESTHETIC SCROLLBAR ── */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #E5D6DA;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.tertiary');
+  }
+
+  /* For Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #E5D6DA transparent;
   }
 
   #root {
     min-height: 100vh;
-    background-color: #FBF4FF;
+    background-color: theme('colors.neutralBg');
+  }
+
+  /* ── PRINT OPTIMIZATIONS ── */
+  @media print {
+    .no-print,
+    header,
+    footer,
+    nav,
+    button,
+    .toast-container,
+    [aria-hidden="true"] {
+      display: none !important;
+    }
+
+    body {
+      background-color: white !important;
+      color: black !important;
+      margin: 0;
+      padding: 0;
+    }
+
+    main {
+      margin-top: 0 !important;
+      padding: 0 !important;
+    }
+
+    section {
+      page-break-inside: avoid;
+      border: none !important;
+      box-shadow: none !important;
+      margin-bottom: 2rem !important;
+    }
+
+    h1, h2, h3 {
+      color: black !important;
+      page-break-after: avoid;
+    }
+
+    .bg-white, .bg-neutralBg, .bg-offWhite {
+      background-color: transparent !important;
+    }
+
+    .border, .shadow-sm, .shadow-md, .shadow-lg {
+      border: 1px solid #eee !important;
+      box-shadow: none !important;
+    }
+
+    /* Keep pattern sections clean */
+    .printable-pattern-section {
+      display: block !important;
+    }
+
+    /* Print Footer Credit */
+    body::after {
+      content: "Printed from With Love & Yarn by M | withloveandyarn.com";
+      display: block;
+      text-align: center;
+      font-size: 10px;
+      color: #8A7080;
+      margin-top: 50px;
+      border-top: 1px solid #eee;
+      padding-top: 10px;
+    }
+
+    /* Fix lists in print */
+    ul {
+      list-style: disc !important;
+      padding-left: 20px !important;
+    }
   }
 }

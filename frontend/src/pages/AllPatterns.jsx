@@ -12,7 +12,7 @@ export default function AllPatterns() {
     <div className="min-h-screen bg-[#FDFCFB] flex flex-col">
       <Navbar />
 
-      <main className="flex-1 mt-10">
+      <main className="flex-1 mt-32">
         <section className="pt-16 pb-8 px-6 max-w-7xl mx-auto flex flex-col items-center text-center">
           <span className="text-[10px] font-black uppercase tracking-[0.4em] text-tertiary mb-6 opacity-60">
             Complete Archive

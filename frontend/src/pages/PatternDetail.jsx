@@ -1,7 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import InstagramPost from '../components/common/InstagramPost';
 import Navbar from '../components/common/Navbar';
 import Footer from '../components/common/Footer';
+import SEO from '../components/common/SEO';
 
 const allPatterns = [
   {
@@ -144,10 +147,15 @@ export default function PatternDetail() {
   }, [slug]);
 
   return (
-    <div className="min-h-screen bg-[#FDFCFB] flex flex-col font-sans">
+    <div className="min-h-screen bg-neutralBg flex flex-col font-sans">
+      <SEO 
+        title={pattern.title} 
+        description={pattern.subtitle + " " + pattern.description}
+        image={pattern.image}
+      />
       <Navbar />
 
-      <main className="flex-1 mt-10">
+      <main className="flex-1 mt-32">
 
         {/* ── Hero ─────────────────────────────────────────────── */}
         <section className="max-w-7xl mx-auto px-6 pt-16 pb-12">
@@ -156,14 +164,14 @@ export default function PatternDetail() {
             {/* Left: text */}
             <div className="lg:w-1/2">
               {/* breadcrumb */}
-              <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] font-bold text-[#8A7080] mb-8">
+              <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] font-bold text-textLight mb-8 no-print">
                 <Link to="/patterns" className="hover:text-tertiary transition-colors">Patterns</Link>
                 <span>/</span>
                 <span className="text-tertiary/60">{pattern.tag}</span>
               </div>
 
               {/* tags */}
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-wrap gap-2 mb-6 no-print">
                 <span className="bg-[#E8F4F1] text-[#0A6C74] text-[9px] font-black tracking-[0.2em] uppercase px-4 py-2 rounded-full">
                   {pattern.tag}
                 </span>
@@ -181,17 +189,17 @@ export default function PatternDetail() {
               {/* Pattern Meta info */}
               <div className="flex flex-wrap items-center gap-4 md:gap-6 mb-8 py-4 border-y border-tertiary/10">
                 <div className="flex flex-col">
-                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#8A7080] mb-1">Designer</span>
-                  <span className="text-sm text-[#4A3840] font-medium">{pattern.author || "Marya Shaikh"}</span>
+                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-textLight mb-1">Designer</span>
+                  <span className="text-sm text-textMain font-medium">{pattern.author || "Marya Shaikh"}</span>
                 </div>
                 <div className="w-[1px] h-8 bg-tertiary/10 hidden md:block"></div>
                 <div className="flex flex-col">
-                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#8A7080] mb-1">Sizes</span>
-                  <span className="text-sm text-[#4A3840]">{pattern.sizes || "One Size"}</span>
+                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-textLight mb-1">Sizes</span>
+                  <span className="text-sm text-textMain">{pattern.sizes || "One Size"}</span>
                 </div>
                 <div className="w-[1px] h-8 bg-tertiary/10 hidden md:block"></div>
                 <div className="flex flex-col">
-                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#8A7080] mb-1">Difficulty</span>
+                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-textLight mb-1">Difficulty</span>
                   <div className="flex items-center gap-1 mt-1">
                     {[1, 2, 3, 4, 5].map(star => (
                       <div key={star} className={`w-2 h-2 rounded-full ${star <= (pattern.difficultyScore || 3) ? 'bg-[#0A6C74]' : 'bg-tertiary/20'}`}></div>
@@ -200,13 +208,16 @@ export default function PatternDetail() {
                 </div>
               </div>
 
-              <p className="text-[#4A3840] text-sm md:text-base font-light leading-relaxed mb-10 max-w-lg">
+              <p className="text-textMain text-sm md:text-base font-light leading-relaxed mb-10 max-w-lg">
                 {pattern.subtitle} {pattern.description}
               </p>
 
               {/* CTA buttons */}
-              <div className="flex flex-wrap gap-4">
-                <button className="flex items-center gap-2 bg-tertiary text-white px-7 py-3.5 rounded-full text-xs font-black uppercase tracking-[0.15em] hover:bg-tertiary/90 transition-all shadow-md hover:shadow-lg">
+              <div className="flex flex-wrap gap-4 no-print">
+                <button 
+                  onClick={() => toast.success(`✨ ${pattern.title} added to your bag!`)}
+                  className="flex items-center gap-2 bg-tertiary text-white px-7 py-3.5 rounded-full text-xs font-black uppercase tracking-[0.15em] hover:bg-tertiary/90 transition-all shadow-md hover:shadow-lg"
+                >
                   <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                   </svg>
@@ -222,7 +233,7 @@ export default function PatternDetail() {
             </div>
 
             {/* Right: image gallery */}
-            <div className="lg:w-5/12 w-full flex flex-col gap-4 lg:sticky lg:top-24 lg:ml-auto lg:pl-8">
+            <div className="lg:w-5/12 w-full flex flex-col gap-4 lg:sticky lg:top-24 lg:ml-auto lg:pl-8 no-print">
               <div className="rounded-3xl overflow-hidden aspect-[4/5] w-full max-w-[420px] mx-auto bg-[#F0ECE8] shadow-[0_24px_60px_rgba(0,0,0,0.08)] relative">
                 <img src={galleryImages[activeImage]} alt={pattern.title} className="w-full h-full object-cover transition-opacity duration-500" />
               </div>
@@ -252,12 +263,12 @@ export default function PatternDetail() {
                 {/* Extra Meta Details */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10 pb-8 border-b border-tertiary/5">
                   <div>
-                    <span className="text-[10px] font-black uppercase tracking-[0.15em] text-[#8A7080] block mb-1">Terminology</span>
-                    <span className="text-sm text-[#4A3840] font-medium">{pattern.terminology || "US Terms"}</span>
+                    <span className="text-[10px] font-black uppercase tracking-[0.15em] text-textLight block mb-1">Terminology</span>
+                    <span className="text-sm text-textMain font-medium">{pattern.terminology || "US Terms"}</span>
                   </div>
-                  <div>
-                    <span className="text-[10px] font-black uppercase tracking-[0.15em] text-[#8A7080] block mb-1">Finished Size</span>
-                    <span className="text-sm text-[#4A3840] font-medium">{pattern.finishedSize || pattern.sizes}</span>
+                   <div>
+                    <span className="text-[10px] font-black uppercase tracking-[0.15em] text-textLight block mb-1">Finished Size</span>
+                    <span className="text-sm text-textMain font-medium">{pattern.finishedSize || pattern.sizes}</span>
                   </div>
                 </div>
 
@@ -266,8 +277,8 @@ export default function PatternDetail() {
                     <div key={i} className="flex items-start gap-4">
                       <div className="w-1.5 h-1.5 rounded-full bg-[#0A6C74] mt-2 flex-shrink-0"></div>
                       <div>
-                        <span className="text-[10px] font-black uppercase tracking-[0.15em] text-[#8A7080] block mb-1">{m.label}</span>
-                        <span className="text-sm text-[#4A3840] font-light leading-snug block pr-4">{m.value}</span>
+                        <span className="text-[10px] font-black uppercase tracking-[0.15em] text-textLight block mb-1">{m.label}</span>
+                        <span className="text-sm text-textMain font-light leading-snug block pr-4">{m.value}</span>
                       </div>
                     </div>
                   ))}
@@ -284,7 +295,7 @@ export default function PatternDetail() {
                         <svg className="w-4 h-4 text-tertiary/30 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
-                        <span className="text-sm text-[#4A3840] font-light leading-relaxed">{note}</span>
+                        <span className="text-sm text-textMain font-light leading-relaxed">{note}</span>
                       </li>
                     ))}
                   </ul>
@@ -318,7 +329,7 @@ export default function PatternDetail() {
         <section className="max-w-4xl mx-auto px-6 py-12">
           <div className="flex items-center justify-between mb-14">
             <h2 className="font-serif text-4xl italic text-tertiary">The Pattern</h2>
-            <button className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-[#8A7080] hover:text-tertiary transition-colors" onClick={() => window.print()}>
+            <button className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-textLight hover:text-tertiary transition-colors" onClick={() => window.print()}>
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
               </svg>
@@ -337,7 +348,7 @@ export default function PatternDetail() {
                 </div>
                 <div className="p-8 space-y-4">
                   {sec.body.split('\n\n').map((para, j) => (
-                    <p key={j} className="text-[#4A3840] text-sm font-light leading-relaxed">
+                    <p key={j} className="text-textMain text-sm font-light leading-relaxed">
                       {para}
                     </p>
                   ))}
@@ -348,7 +359,7 @@ export default function PatternDetail() {
         </section>
 
         {/* ── Pattern Gallery ──────────────────────────────────────── */}
-        <section className="max-w-7xl mx-auto px-6 py-12 overflow-hidden">
+        <section className="max-w-7xl mx-auto px-6 py-12 overflow-hidden no-print">
           <div className="flex items-center justify-between mb-8">
             <h2 className="font-serif text-3xl italic text-tertiary">Gallery</h2>
             <div className="flex gap-2">
@@ -388,10 +399,10 @@ export default function PatternDetail() {
         </section>
 
         {/* ── Designer Note ──────────────────────────────────────── */}
-        <section className="max-w-7xl mx-auto px-6 py-12">
+        <section className="max-w-7xl mx-auto px-6 py-12 no-print">
           <div className="max-w-3xl mx-auto bg-[#FAF8F6] p-10 rounded-3xl border border-tertiary/10 text-center">
             <h3 className="font-serif text-2xl italic text-tertiary mb-4">A Note from the Designer</h3>
-            <p className="text-[#4A3840] text-sm font-light leading-relaxed mb-6">
+            <p className="text-textMain text-sm font-light leading-relaxed mb-6">
               "Designing this piece was a journey of patience and discovering the right rhythm. The stitches are intended to be meditative, growing row by row into an heirloom you can cherish for years. I recommend choosing a yarn that brings you joy, as you'll be spending many quiet hours with it."
             </p>
             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#0A6C74]">
@@ -400,8 +411,23 @@ export default function PatternDetail() {
           </div>
         </section>
 
+        {/* Instagram Section */}
+        <div className="max-w-7xl mx-auto px-6 py-20 border-t border-tertiary/10 no-print">
+          <div className="text-center mb-16">
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-tertiary block mb-3">Community Feed</span>
+            <h2 className="font-serif text-4xl italic text-tertiary">Our Stitched Together Gallery</h2>
+            <p className="text-textLight text-sm italic font-light mt-2">See how our community is making the {pattern.title}.</p>
+          </div>
+          
+          <InstagramPost 
+            image="https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg"
+            caption={`Just finished my first ${pattern.title}! The instructions were so clear and the result is absolutely dreamy. 🧶 #withloveandyarn #crochetpatterns`}
+            likes="521"
+          />
+        </div>
+
         {/* ── Back to patterns ─────────────────────────────────── */}
-        <section className="max-w-7xl mx-auto px-6 py-16 flex justify-center">
+        <section className="max-w-7xl mx-auto px-6 py-16 flex justify-center no-print">
           <Link to="/patterns" className="px-10 py-4 bg-white border border-tertiary/20 text-tertiary text-xs font-black uppercase tracking-[0.2em] rounded-full hover:bg-tertiary hover:text-white transition-colors duration-300 shadow-sm hover:shadow-lg">
             ← Back to Patterns
           </Link>

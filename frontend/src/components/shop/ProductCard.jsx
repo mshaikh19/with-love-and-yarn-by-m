@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import QuickShopModal from './QuickShopModal';
 
 const ProductCard = ({ product }) => {
   const [isWishlisted, setIsWishlisted] = useState(false);
+  const [isQuickShopOpen, setIsQuickShopOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
-    <div className="group cursor-pointer flex flex-col">
-      {/* Image Container */}
+    <>
+      <div onClick={() => navigate(`/shop/${product.id}`)} className="group cursor-pointer flex flex-col">
+        {/* Image Container */}
       <div className="relative aspect-[3/4] overflow-hidden bg-[#F9F6F3] rounded-sm transition-all duration-700 ease-in-out">
         <img
           src={product.image}
@@ -15,7 +21,7 @@ const ProductCard = ({ product }) => {
         
         {/* Wishlist Icon */}
         <button 
-          onClick={(e) => { e.stopPropagation(); setIsWishlisted(!isWishlisted); }}
+          onClick={(e) => { e.preventDefault(); e.stopPropagation(); setIsWishlisted(!isWishlisted); }}
           className="absolute top-5 left-5 z-20 transition-all duration-300 transform hover:scale-110"
         >
           <svg 
@@ -41,7 +47,10 @@ const ProductCard = ({ product }) => {
 
         {/* Quick Shop Button (Always visible bottom overlay or hover appearing) */}
         <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-20">
-          <button className="w-full bg-tertiary text-white py-3.5 text-[9px] font-black uppercase tracking-[0.25em] hover:bg-deepRose transition-all duration-300 rounded-sm shadow-xl">
+          <button 
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); setIsQuickShopOpen(true); }}
+            className="w-full bg-tertiary text-white py-3.5 text-[9px] font-black uppercase tracking-[0.25em] hover:bg-deepRose transition-all duration-300 rounded-sm shadow-xl"
+          >
             Quick Shop +
           </button>
         </div>
@@ -72,7 +81,11 @@ const ProductCard = ({ product }) => {
 
         {/* Add to Cart Button */}
         <button
-          onClick={(e) => e.stopPropagation()}
+          onClick={(e) => { 
+            e.preventDefault(); 
+            e.stopPropagation(); 
+            toast.success(`✨ ${product.name} added to your bag!`); 
+          }}
           className="mt-3 w-full flex items-center justify-center gap-2 py-2.5 border border-tertiary/40 rounded-sm text-[9px] font-black uppercase tracking-[0.2em] text-tertiary hover:bg-tertiary hover:text-white transition-all duration-300 group/btn"
         >
           <svg
@@ -92,7 +105,14 @@ const ProductCard = ({ product }) => {
           Add to Cart
         </button>
       </div>
-    </div>
+      </div>
+      
+      <QuickShopModal 
+        product={product}
+        isOpen={isQuickShopOpen}
+        onClose={() => setIsQuickShopOpen(false)}
+      />
+    </>
   );
 };
 

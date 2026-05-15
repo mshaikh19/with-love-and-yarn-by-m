@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from '../components/shop/Sidebar';
 import ProductCard from '../components/shop/ProductCard';
+import SkeletonCard from '../components/shop/SkeletonCard';
 import Navbar from '../components/common/Navbar';
 import Footer from '../components/common/Footer';
 
 const Shop = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading delay to show off the skeletons
+    const timer = setTimeout(() => setIsLoading(false), 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
   const products = [
     {
       id: 1,
@@ -85,7 +94,7 @@ const Shop = () => {
     <div className="min-h-screen bg-[#FDFCFB] flex flex-col">
       <Navbar />
 
-      <main className="flex-1 mt-10">
+      <main className="flex-1 mt-32">
         {/* Shop Hero Section */}
         <section className="max-w-7xl mx-auto px-6 py-12 md:py-20 flex flex-col items-center text-center">
           <span className="text-[10px] font-black uppercase tracking-[0.4em] text-tertiary mb-6 opacity-60">
@@ -111,9 +120,14 @@ const Shop = () => {
             {/* Product Grid */}
             <div className="lg:w-3/4">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
-                {products.map((product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
+                {isLoading ? (
+                  // Show 6 skeleton cards while loading
+                  [...Array(6)].map((_, i) => <SkeletonCard key={i} />)
+                ) : (
+                  products.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                  ))
+                )}
               </div>
 
               {/* Pagination */}

@@ -1,3 +1,4 @@
+import SEO from "../components/common/SEO";
 import Navbar from "../components/common/Navbar";
 import HeroSection from "../components/home/HeroSection";
 import CategorySection from "../components/home/CategorySection";
@@ -10,6 +11,7 @@ import Footer from "../components/common/Footer";
 export default function Home() {
   return (
     <div className="bg-neutralBg min-h-screen font-sans text-textMain pb-20">
+      <SEO title="Home" />
       <Navbar />
 
       <HeroSection />

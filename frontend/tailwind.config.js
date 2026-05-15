@@ -20,8 +20,10 @@ export default {
         textLight: "#8A7080",
         primary: "#D9C9E8",
         secondary: "#C3AADC",
-        tertiary: "#996883",
-        neutralBg: "#FBF4FF"
+        tertiary: "#6B3A4E",
+        neutralBg: "#FBF4FF",
+        offWhite: "#FAF8F6",
+        accent: "#0A6C74"
       },
       fontFamily: {
         serif: ["Playfair Display", "serif"],
