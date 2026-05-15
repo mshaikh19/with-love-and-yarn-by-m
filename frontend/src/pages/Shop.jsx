@@ -11,7 +11,7 @@ const Shop = () => {
       name: 'The Heirloom Cardigan',
       price: '$340.00',
       description: '100% Organic Merino Wool • Hand-Dyed Lavender',
-      image: '/products/cardigan.png',
+      image: 'https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg',
       status: 'Limited Edition'
     },
     {
@@ -19,14 +19,14 @@ const Shop = () => {
       name: 'Canvas Market Tote',
       price: '$115.00',
       description: 'Hand-Knotted Cotton Blend • Sandstone',
-      image: '/products/tote.png'
+      image: 'https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg'
     },
     {
       id: 3,
       name: 'Morning Mist Throw',
       price: '$285.00',
       description: 'Recycled Wool & Silk Blend • Fog Grey',
-      image: '/products/blanket.png',
+      image: 'https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg',
       status: 'Restocked'
     },
     {
@@ -34,14 +34,14 @@ const Shop = () => {
       name: 'Petal Soft Vest',
       price: '$195.00',
       description: 'Brushed Mohair & Silk • Deep Plum',
-      image: '/products/vest.png'
+      image: 'https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg'
     },
     {
       id: 5,
       name: 'Artisan Yarn Kit',
       price: '$85.00',
       description: 'Hand-Dyed Merino Trio • Pastel Palette',
-      image: '/products/yarn_kit.png',
+      image: 'https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg',
       status: 'The Studio Edit'
     },
     {
@@ -49,35 +49,35 @@ const Shop = () => {
       name: 'Heritage Knit Beanie',
       price: '$65.00',
       description: 'Chunky Merino Wool • Slate Haze',
-      image: '/products/beanie.png'
+      image: 'https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg'
     },
     {
       id: 7,
       name: 'Mist Scarf',
       price: '$115.00',
       description: 'Alpaca & Silk Blend • Lavender Haze',
-      image: '/products/scarf.png'
+      image: 'https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg'
     },
     {
       id: 8,
       name: 'Artisan Pup Heirloom',
       price: '$75.00',
       description: 'Hand-Knit Organic Scrap Yarn • Mixed Earth',
-      image: '/products/puppy.png'
+      image: 'https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg'
     },
     {
       id: 9,
       name: 'Organic Tea Towels',
       price: '$45.00',
       description: 'Waffle Texture Cotton • Ivory & Sand',
-      image: '/products/tea_towel.png'
+      image: 'https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg'
     },
     {
       id: 10,
       name: 'Bamboo Crochet hooks',
       price: '$55.00',
       description: 'Set of 5 Ergonomic Hooks • Sustainable Case',
-      image: '/products/hooks.png'
+      image: 'https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg'
     }
   ];
 

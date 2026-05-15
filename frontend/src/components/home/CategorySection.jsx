@@ -4,32 +4,32 @@ import { Link } from "react-router-dom";
 const categories = [
   {
     label: "Clothing",
-    img: "/hero_main_1775737341179.png",
+    img: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
     bg: "bg-[#EFE5F5]",
   },
   {
     label: "Toys",
-    img: "/hero_small_1_1775737359124.png",
+    img: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
     bg: "bg-[#F5E6EE]",
   },
   {
     label: "Home Decor",
-    img: "/hero_main_1775737341179.png",
+    img: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
     bg: "bg-[#EAF3EF]",
   },
   {
     label: "Accessories",
-    img: "/hero_small_2_1775737375511.png",
+    img: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
     bg: "bg-[#F0EBF8]",
   },
   {
     label: "Patterns",
-    img: "/hero_small_1_1775737359124.png",
+    img: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
     bg: "bg-[#F7EDE8]",
   },
   {
     label: "Kits",
-    img: "/hero_main_1775737341179.png",
+    img: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
     bg: "bg-[#EBF0F8]",
   },
 ];

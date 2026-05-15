@@ -10,7 +10,7 @@ export default function SeasonalPatterns() {
       price: "$12.00",
       tag: "INTERMEDIATE",
       color: "bg-[#0A6C74]",
-      image: "/products/scarf.png"
+      image: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg"
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ export default function SeasonalPatterns() {
       price: "$14.00",
       tag: "ADVANCED",
       color: "bg-[#5B5D5C]",
-      image: "/products/socks.png"
+      image: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg"
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ export default function SeasonalPatterns() {
       price: "$10.00",
       tag: "BEGINNER",
       color: "bg-[#0B132B]",
-      image: "/products/blanket.png"
+      image: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg"
     }
   ];
 

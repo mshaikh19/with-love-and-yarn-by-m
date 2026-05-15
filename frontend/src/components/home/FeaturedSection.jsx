@@ -7,15 +7,15 @@ const featuredItems = [
     name: "Lavender Knit Scarf",
     material: "100% Merino Wool",
     price: "$64.00",
-    image: "/artifacts/lavender_knit_scarf_product_1775976366355.png",
+    image: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
     tall: false
   },
   {
     id: 2,
     name: "Heritage Patchwork Blanket",
     material: "Tapestry in earth tones",
-    price: "$artifacts/patchwork_blanket_product_1775976384634.png",
-    image: "/artifacts/patchwork_blanket_product_1775976384634.png",
+    price: "$125.00",
+    image: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
     tall: true
   },
   {
@@ -23,7 +23,7 @@ const featuredItems = [
     name: "Crocheted Market Bag",
     material: "Sustainable carryall",
     price: "$45.00",
-    image: "/artifacts/crochet_market_bag_product_1775976401288.png",
+    image: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
     tall: false
   },
   {
@@ -31,7 +31,7 @@ const featuredItems = [
     name: "Knit Toy Puppy",
     material: "Organic cotton",
     price: "$42.00",
-    image: "/artifacts/knit_toy_puppy_product_1775976418335.png",
+    image: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
     tall: false
   },
   {
@@ -39,7 +39,7 @@ const featuredItems = [
     name: "Children's Cardigan",
     material: "French lace collar",
     price: "$58.00",
-    image: "/artifacts/children_lace_cardigan_product_1775976435532.png",
+    image: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
     tall: false
   }
 ];

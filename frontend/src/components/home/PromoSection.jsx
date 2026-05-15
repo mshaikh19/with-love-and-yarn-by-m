@@ -45,7 +45,7 @@ export default function PromoSection() {
                {/* Image Column */}
                <div className="md:w-7/12 relative min-h-[400px] md:min-h-full">
                   <img
-                     src="/artifacts/guided_patterns_promo_featured_1775977156589.png"
+                     src="https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg"
                      className="absolute inset-0 w-full h-full object-cover"
                      alt="Guided knitting pattern and yarn"
                   />

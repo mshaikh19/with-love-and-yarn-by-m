@@ -10,7 +10,7 @@ export default function PatternGrid({ hideHeader = false, hideViewAllButton = fa
       slug: "solstice-cable-sweater",
       title: "The Solstice Cable Sweater",
       description: "An exploration of depth and rhythm through complex interlocking cables and soft merino wool.",
-      image: "/products/blanket.png",
+      image: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
       tag: "Advanced",
       price: "$15.00",
       isFree: false
@@ -20,7 +20,7 @@ export default function PatternGrid({ hideHeader = false, hideViewAllButton = fa
       slug: "minimalist-ribbed-beanie",
       title: "Minimalist Ribbed Beanie",
       description: "The perfect entry-level project for the modern maker. Quick to knit and effortlessly chic.",
-      image: "/products/beanie.png",
+      image: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
       tag: "Beginner",
       price: "$0.00",
       isFree: true
@@ -30,7 +30,7 @@ export default function PatternGrid({ hideHeader = false, hideViewAllButton = fa
       slug: "heirloom-lace-shawl",
       title: "The Heirloom Lace Shawl",
       description: "A delicate, weightless piece inspired by summer mornings in the garden.",
-      image: "/products/yarn_kit.png",
+      image: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
       tag: "Intermediate",
       price: "$12.00",
       isFree: false
@@ -40,7 +40,7 @@ export default function PatternGrid({ hideHeader = false, hideViewAllButton = fa
       slug: "morning-mist-throw",
       title: "Morning Mist Throw",
       description: "A cozy, oversized throw blanket featuring a simple yet elegant textured stitch.",
-      image: "/products/tote.png",
+      image: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
       tag: "Beginner",
       price: "$0.00",
       isFree: true
@@ -50,7 +50,7 @@ export default function PatternGrid({ hideHeader = false, hideViewAllButton = fa
       slug: "petal-soft-vest",
       title: "Petal Soft Vest",
       description: "A versatile layering piece crafted from brushed mohair and silk.",
-      image: "/products/vest.png",
+      image: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
       tag: "Intermediate",
       price: "$18.00",
       isFree: false
@@ -60,7 +60,7 @@ export default function PatternGrid({ hideHeader = false, hideViewAllButton = fa
       slug: "canvas-market-tote",
       title: "Canvas Market Tote",
       description: "A sturdy, hand-knotted cotton blend tote perfect for trips to the local market.",
-      image: "/products/scarf.png",
+      image: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
       tag: "Advanced",
       price: "$0.00",
       isFree: true

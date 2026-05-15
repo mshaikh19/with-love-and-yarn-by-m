@@ -4,6 +4,8 @@ import Shop from "./pages/Shop";
 import Patterns from "./pages/Patterns";
 import AllPatterns from "./pages/AllPatterns";
 import PatternDetail from "./pages/PatternDetail";
+import Tutorials from "./pages/Tutorials";
+import Auth from "./pages/Auth";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Route path="/patterns" element={<Patterns />} />
       <Route path="/all-patterns" element={<AllPatterns />} />
       <Route path="/patterns/:slug" element={<PatternDetail />} />
+      <Route path="/tutorials" element={<Tutorials />} />
+      <Route path="/account" element={<Auth />} />
     </Routes>
   );
 }

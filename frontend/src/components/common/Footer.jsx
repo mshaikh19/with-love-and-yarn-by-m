@@ -108,7 +108,6 @@ export default function Footer() {
                ].map((col, idx) => (
                   <div key={idx} className="col-span-1">
                      <h4 className="text-[10px] font-black uppercase tracking-[0.25em] text-tertiary mb-3 md:mb-4 flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-deepRose/20" />
                         {col.title}
                      </h4>
                      <ul className="space-y-3">

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '../components/common/Navbar';
 import Footer from '../components/common/Footer';
@@ -10,11 +10,21 @@ const allPatterns = [
     title: "The Solstice Cable Sweater",
     subtitle: "A textured masterpiece inspired by slow mornings and the rhythmic click of needles.",
     description: "This pattern features a deep waffle stitch combined with delicate honeycomb detailing on the cuffs.",
-    image: "/products/blanket.png",
+    image: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
+    author: "Marya Shaikh",
+    sizes: "XS, S, M, L, XL, 2XL",
+    difficultyScore: 4,
     tag: "Advanced",
     secondTag: "Intermediate",
     price: "$15.00",
     isFree: false,
+    terminology: "US Terms",
+    finishedSize: "Bust: 42\", Length: 24\" (Size M)",
+    patternNotes: [
+      "The ch-3 at the beginning of rows counts as a double crochet unless otherwise stated.",
+      "This garment is worked in panels from the bottom up and seamed.",
+      "For a more relaxed fit, go up one hook size."
+    ],
     materials: [
       { label: "Yarn", value: "400g (Approx. 200m) of Worsted Weight Merino in Honeycomb" },
       { label: "Hook", value: "5.5mm (US I-9) Ergonomic Chrome Hook" },
@@ -45,7 +55,7 @@ const allPatterns = [
         body: "Sleeves are worked in the round. Join yarn at the bottom of the armhole. Work Waffle Stitch in rounds, decreasing 2 sts every 5th round for 34 rows (18 sts).\n\nFinish with 10 rows of honeycomb stitch (alternating fpsc and bpsc every 2 sts) for a decorative cuff.\n\nSeam the shoulders using the Mattress Stitch for an invisible join. Add buttonholes to the front placket by skipping 2 sts and chaining 2 at equal intervals.",
       },
     ],
-    bannerImage: "/products/cardigan.png",
+    bannerImage: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
   },
   {
     id: 2,
@@ -53,10 +63,20 @@ const allPatterns = [
     title: "Minimalist Ribbed Beanie",
     subtitle: "The perfect entry-level project for the modern maker.",
     description: "Quick to knit and effortlessly chic, this pattern is designed for the beginner who wants something beautiful.",
-    image: "/products/beanie.png",
+    image: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
+    author: "Marya Shaikh",
+    sizes: "Adult (One Size)",
+    difficultyScore: 1,
     tag: "Beginner",
     price: "$0.00",
     isFree: true,
+    terminology: "US Terms",
+    finishedSize: "Circumference: 18\" unstretched (fits 21-23\")",
+    patternNotes: [
+      "This hat is worked in the round from the brim up.",
+      "Use a stretchy cast-on such as the German Twisted Cast-On for the best fit.",
+      "Crown decreases are worked rapidly for a slouchy top."
+    ],
     materials: [
       { label: "Yarn", value: "120g of Chunky Merino in Slate Haze" },
       { label: "Needles", value: "6mm (US 10) 40cm Circular Needles" },
@@ -79,13 +99,45 @@ const allPatterns = [
         body: "Round 1: *K2, P2tog; repeat from * to end. (60 sts)\nRound 2: *K2, P1; repeat from * to end.\nRound 3: *K2tog, P1; repeat from * to end. (40 sts)\nRound 4: *K1, P1; repeat from * to end.\nRound 5: *K2tog; repeat from * to end. (20 sts)\n\nCut yarn leaving a 20cm tail. Thread through remaining sts and pull tight to close.",
       },
     ],
-    bannerImage: "/products/beanie.png",
+    bannerImage: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
   },
 ];
 
 export default function PatternDetail() {
   const { slug } = useParams();
   const pattern = allPatterns.find(p => p.slug === slug) || allPatterns[0];
+  const [activeImage, setActiveImage] = useState(0);
+  const galleryRef = useRef(null);
+
+  const scrollGallery = (direction) => {
+    if (galleryRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = galleryRef.current;
+      const scrollAmount = 624; // approximate item width + gap
+      
+      if (direction === 1) {
+        // Next
+        if (Math.ceil(scrollLeft + clientWidth) >= scrollWidth - 10) {
+          galleryRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          galleryRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+      } else {
+        // Previous
+        if (scrollLeft <= 10) {
+          galleryRef.current.scrollTo({ left: scrollWidth, behavior: 'smooth' });
+        } else {
+          galleryRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        }
+      }
+    }
+  };
+
+  const galleryImages = [
+    pattern.image,
+    pattern.image,
+    pattern.image,
+    pattern.image,
+  ];
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -126,6 +178,28 @@ export default function PatternDetail() {
                 {pattern.title}
               </h1>
 
+              {/* Pattern Meta info */}
+              <div className="flex flex-wrap items-center gap-4 md:gap-6 mb-8 py-4 border-y border-tertiary/10">
+                <div className="flex flex-col">
+                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#8A7080] mb-1">Designer</span>
+                  <span className="text-sm text-[#4A3840] font-medium">{pattern.author || "Marya Shaikh"}</span>
+                </div>
+                <div className="w-[1px] h-8 bg-tertiary/10 hidden md:block"></div>
+                <div className="flex flex-col">
+                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#8A7080] mb-1">Sizes</span>
+                  <span className="text-sm text-[#4A3840]">{pattern.sizes || "One Size"}</span>
+                </div>
+                <div className="w-[1px] h-8 bg-tertiary/10 hidden md:block"></div>
+                <div className="flex flex-col">
+                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#8A7080] mb-1">Difficulty</span>
+                  <div className="flex items-center gap-1 mt-1">
+                    {[1, 2, 3, 4, 5].map(star => (
+                      <div key={star} className={`w-2 h-2 rounded-full ${star <= (pattern.difficultyScore || 3) ? 'bg-[#0A6C74]' : 'bg-tertiary/20'}`}></div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
               <p className="text-[#4A3840] text-sm md:text-base font-light leading-relaxed mb-10 max-w-lg">
                 {pattern.subtitle} {pattern.description}
               </p>
@@ -147,88 +221,182 @@ export default function PatternDetail() {
               </div>
             </div>
 
-            {/* Right: image */}
-            <div className="lg:w-1/2 w-full">
-              <div className="rounded-3xl overflow-hidden aspect-[4/5] bg-[#F0ECE8] shadow-[0_24px_60px_rgba(0,0,0,0.08)]">
-                <img src={pattern.image} alt={pattern.title} className="w-full h-full object-cover" />
+            {/* Right: image gallery */}
+            <div className="lg:w-5/12 w-full flex flex-col gap-4 lg:sticky lg:top-24 lg:ml-auto lg:pl-8">
+              <div className="rounded-3xl overflow-hidden aspect-[4/5] w-full max-w-[420px] mx-auto bg-[#F0ECE8] shadow-[0_24px_60px_rgba(0,0,0,0.08)] relative">
+                <img src={galleryImages[activeImage]} alt={pattern.title} className="w-full h-full object-cover transition-opacity duration-500" />
               </div>
+
+
             </div>
           </div>
         </section>
 
-        {/* ── Materials & Stitch Key ─────────────────────────── */}
+        {/* ── Pattern Essentials & Notes ─────────────────────────── */}
         <section className="max-w-7xl mx-auto px-6 py-12">
           <div className="flex flex-col lg:flex-row gap-8">
 
-            {/* Materials List */}
-            <div className="lg:w-2/3 bg-white rounded-2xl border border-tertiary/8 shadow-[0_4px_20px_rgba(0,0,0,0.04)] p-8">
-              <div className="flex items-center gap-3 mb-7">
-                <div className="w-5 h-5 rounded-full bg-tertiary/10 flex items-center justify-center">
-                  <svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-tertiary">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                  </svg>
-                </div>
-                <span className="text-[11px] font-black uppercase tracking-[0.25em] text-tertiary/70">Materials List</span>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {pattern.materials.map((m, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#0A6C74] mt-2 flex-shrink-0"></div>
-                    <div>
-                      <span className="text-[10px] font-black uppercase tracking-[0.15em] text-[#8A7080] block mb-0.5">{m.label}</span>
-                      <span className="text-sm text-[#4A3840] font-light leading-snug">{m.value}</span>
-                    </div>
+            {/* Left Col: Materials & Notes */}
+            <div className="lg:w-2/3 flex flex-col gap-8">
+
+              <div className="bg-white rounded-2xl border border-tertiary/8 shadow-[0_4px_20px_rgba(0,0,0,0.04)] p-8 md:p-10">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="w-6 h-6 rounded-full bg-tertiary/10 flex items-center justify-center">
+                    <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-tertiary">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
                   </div>
-                ))}
+                  <span className="text-[11px] font-black uppercase tracking-[0.25em] text-tertiary/70">Materials & Sizing</span>
+                </div>
+
+                {/* Extra Meta Details */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10 pb-8 border-b border-tertiary/5">
+                  <div>
+                    <span className="text-[10px] font-black uppercase tracking-[0.15em] text-[#8A7080] block mb-1">Terminology</span>
+                    <span className="text-sm text-[#4A3840] font-medium">{pattern.terminology || "US Terms"}</span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-black uppercase tracking-[0.15em] text-[#8A7080] block mb-1">Finished Size</span>
+                    <span className="text-sm text-[#4A3840] font-medium">{pattern.finishedSize || pattern.sizes}</span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {pattern.materials.map((m, i) => (
+                    <div key={i} className="flex items-start gap-4">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#0A6C74] mt-2 flex-shrink-0"></div>
+                      <div>
+                        <span className="text-[10px] font-black uppercase tracking-[0.15em] text-[#8A7080] block mb-1">{m.label}</span>
+                        <span className="text-sm text-[#4A3840] font-light leading-snug block pr-4">{m.value}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Pattern Notes */}
+              {(pattern.patternNotes && pattern.patternNotes.length > 0) && (
+                <div className="bg-[#FAF8F6] rounded-2xl border border-tertiary/8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] p-8 md:p-10">
+                  <span className="text-[11px] font-black uppercase tracking-[0.25em] text-[#0A6C74] block mb-6">Pattern Notes</span>
+                  <ul className="space-y-4">
+                    {pattern.patternNotes.map((note, i) => (
+                      <li key={i} className="flex items-start gap-4">
+                        <svg className="w-4 h-4 text-tertiary/30 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-[#4A3840] font-light leading-relaxed">{note}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+            </div>
+
+            {/* Right Col: Stitch Key */}
+            <div className="lg:w-1/3">
+              <div className="bg-[#FAF8F6] rounded-2xl border border-tertiary/8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] p-8 md:p-10 sticky top-24">
+                <span className="text-[11px] font-black uppercase tracking-[0.25em] text-tertiary/70 block mb-8">Stitch Key</span>
+                <div className="space-y-5">
+                  {pattern.stitchKey.map((s, i) => (
+                    <div key={i} className="flex justify-between items-center border-b border-tertiary/5 pb-4 last:border-0 last:pb-0">
+                      <span className="text-[12px] font-black text-tertiary tracking-wider">{s.abbr}</span>
+                      <span className="text-xs text-[#5C4A52] font-light text-right">{s.desc}</span>
+                    </div>
+                  ))}
+                </div>
+                <a href="#" className="mt-10 block text-[10px] font-black uppercase tracking-[0.2em] text-[#0A6C74] hover:underline">
+                  View full abbreviation guide →
+                </a>
               </div>
             </div>
 
-            {/* Stitch Key */}
-            <div className="lg:w-1/3 bg-[#FAF8F6] rounded-2xl border border-tertiary/8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] p-8">
-              <span className="text-[11px] font-black uppercase tracking-[0.25em] text-tertiary/70 block mb-7">Stitch Key</span>
-              <div className="space-y-4">
-                {pattern.stitchKey.map((s, i) => (
-                  <div key={i} className="flex justify-between items-center border-b border-tertiary/8 pb-4 last:border-0 last:pb-0">
-                    <span className="text-[11px] font-black text-tertiary tracking-wider">{s.abbr}</span>
-                    <span className="text-xs text-[#5C4A52] font-light">{s.desc}</span>
-                  </div>
-                ))}
-              </div>
-              <a href="#" className="mt-8 block text-[10px] font-black uppercase tracking-[0.2em] text-[#0A6C74] hover:underline">
-                Abbreviations guide →
-              </a>
-            </div>
           </div>
         </section>
 
         {/* ── The Method ────────────────────────────────────────── */}
-        <section className="max-w-7xl mx-auto px-6 py-12">
-          <h2 className="font-serif text-4xl italic text-tertiary text-center mb-14">The Method</h2>
+        <section className="max-w-4xl mx-auto px-6 py-12">
+          <div className="flex items-center justify-between mb-14">
+            <h2 className="font-serif text-4xl italic text-tertiary">The Pattern</h2>
+            <button className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-[#8A7080] hover:text-tertiary transition-colors" onClick={() => window.print()}>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+              </svg>
+              Print Pattern
+            </button>
+          </div>
 
-          <div className="space-y-10 max-w-3xl mx-auto">
+          <div className="space-y-12">
             {pattern.sections.map((sec, i) => (
-              <div key={i} className="flex gap-8 items-start">
-                {/* Step number */}
-                <div className="flex-shrink-0 w-10 h-10 rounded-full border border-tertiary/15 flex items-center justify-center text-tertiary/30 text-xs font-black">
-                  {i + 1}
-                </div>
-                <div className="flex-1 pt-1.5">
-                  <h3 className="font-serif text-xl text-tertiary mb-4">{sec.title}</h3>
-                  <div className="space-y-3">
-                    {sec.body.split('\n\n').map((para, j) => (
-                      <p key={j} className="text-[#4A3840] text-sm font-light leading-relaxed">{para}</p>
-                    ))}
+              <div key={i} className="bg-white rounded-2xl border border-tertiary/10 shadow-[0_4px_20px_rgba(0,0,0,0.02)] overflow-hidden">
+                <div className="bg-[#FAF8F6] px-8 py-5 border-b border-tertiary/5 flex items-center gap-4">
+                  <div className="w-8 h-8 rounded-full bg-white border border-tertiary/10 flex items-center justify-center text-tertiary text-xs font-black shadow-sm">
+                    {i + 1}
                   </div>
+                  <h3 className="font-serif text-xl text-tertiary">{sec.title}</h3>
+                </div>
+                <div className="p-8 space-y-4">
+                  {sec.body.split('\n\n').map((para, j) => (
+                    <p key={j} className="text-[#4A3840] text-sm font-light leading-relaxed">
+                      {para}
+                    </p>
+                  ))}
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* ── Banner image ──────────────────────────────────────── */}
-        <section className="max-w-7xl mx-auto px-6 py-8">
-          <div className="rounded-3xl overflow-hidden h-[400px] shadow-[0_12px_40px_rgba(0,0,0,0.07)]">
-            <img src={pattern.bannerImage} alt={pattern.title} className="w-full h-full object-cover" />
+        {/* ── Pattern Gallery ──────────────────────────────────────── */}
+        <section className="max-w-7xl mx-auto px-6 py-12 overflow-hidden">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="font-serif text-3xl italic text-tertiary">Gallery</h2>
+            <div className="flex gap-2">
+              <button
+                onClick={() => scrollGallery(-1)}
+                className="w-10 h-10 rounded-full border border-tertiary/20 flex items-center justify-center text-tertiary hover:bg-tertiary hover:text-white transition-all shadow-sm hover:shadow-md"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+              </button>
+              <button
+                onClick={() => scrollGallery(1)}
+                className="w-10 h-10 rounded-full border border-tertiary/20 flex items-center justify-center text-tertiary hover:bg-tertiary hover:text-white transition-all shadow-sm hover:shadow-md"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              </button>
+            </div>
+          </div>
+
+          <div
+            ref={galleryRef}
+            className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {[1, 2, 3, 4, 5].map((_, idx) => (
+              <div key={idx} className="snap-center flex-shrink-0 w-[85vw] md:w-[500px] lg:w-[600px] h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.06)] relative group">
+                <img
+                  src={pattern.bannerImage}
+                  alt={`${pattern.title} Gallery ${idx + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                  <span className="text-white font-serif italic text-2xl tracking-wide">Detail {idx + 1}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Designer Note ──────────────────────────────────────── */}
+        <section className="max-w-7xl mx-auto px-6 py-12">
+          <div className="max-w-3xl mx-auto bg-[#FAF8F6] p-10 rounded-3xl border border-tertiary/10 text-center">
+            <h3 className="font-serif text-2xl italic text-tertiary mb-4">A Note from the Designer</h3>
+            <p className="text-[#4A3840] text-sm font-light leading-relaxed mb-6">
+              "Designing this piece was a journey of patience and discovering the right rhythm. The stitches are intended to be meditative, growing row by row into an heirloom you can cherish for years. I recommend choosing a yarn that brings you joy, as you'll be spending many quiet hours with it."
+            </p>
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#0A6C74]">
+              — {pattern.author || "Marya Shaikh"}
+            </span>
           </div>
         </section>
 

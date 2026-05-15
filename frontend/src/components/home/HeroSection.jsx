@@ -37,7 +37,7 @@ export default function HeroSection() {
 
           {/* Main Large Image — top right anchor */}
           <img
-            src="/hero_main_1775737341179.png"
+            src="https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg"
             alt="Crochet Toys"
             className="
               absolute top-10 right-0
@@ -51,7 +51,7 @@ export default function HeroSection() {
 
           {/* Top Left Small Image — overlaps top-left of main */}
           <img
-            src="/hero_small_2_1775737375511.png"
+            src="https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg"
             alt="Purple Yarn"
             className="
               absolute top-2 left-2
@@ -64,7 +64,7 @@ export default function HeroSection() {
 
           {/* Bottom Left Small Image — overlaps bottom-left of main */}
           <img
-            src="/hero_small_1_1775737359124.png"
+            src="https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg"
             alt="Knitting Hands"
             className="
               absolute -bottom-6 left-2 

@@ -7,7 +7,7 @@ const blogPosts = [
     category: "Inspiration",
     date: "Nov 28",
     excerpt: "In a world of instant gratification, there is a profound peace in taking the time to hand-craft something unique. Discover why the slow movements is gaining momentum.",
-    image: "/knitting_cozy_blog_featured_1775974109566.png",
+    image: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
     featured: true
   },
   {
@@ -15,7 +15,7 @@ const blogPosts = [
     title: "Choosing the Perfect Palette: A Guide to Yarn Color Theory",
     category: "Guide",
     date: "Nov 15",
-    image: "/yarn_color_palette_blog_1775974128435.png",
+    image: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
     featured: false
   },
   {
@@ -23,7 +23,7 @@ const blogPosts = [
     title: "Spring/Summer Update: New Yarns, New Knits, New Inspiration",
     category: "Update",
     date: "Oct 30",
-    image: "/crochet_hooks_flatlay_blog_1775974149964.png",
+    image: "https://i.pinimg.com/736x/97/18/f4/9718f44a3a11a16f33b96ba7e49d4d16.jpg",
     featured: false
   }
 ];

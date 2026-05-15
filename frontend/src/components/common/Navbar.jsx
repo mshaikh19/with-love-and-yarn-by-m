@@ -35,8 +35,8 @@ export default function Navbar() {
 
           {/* RIGHT LINKS — desktop only */}
           <div className="hidden md:flex gap-6 lg:gap-8 text-[12px] lg:text-[13px] tracking-wider font-medium text-textLight uppercase items-center">
-            <NavLink to="/patterns" label="Tutorials" disableActive />
-            <NavLink to="/shop" label="Account" disableActive />
+            <NavLink to="/tutorials" label="Tutorials" />
+            <NavLink to="/account" label="Account" />
             <span className="cursor-pointer text-base" title="Cart">🛒</span>
           </div>
 
@@ -57,8 +57,8 @@ export default function Navbar() {
             <NavLink to="/" label="Home" onClick={() => setOpen(false)} />
             <NavLink to="/shop" label="Shop" onClick={() => setOpen(false)} />
             <NavLink to="/patterns" label="Patterns" onClick={() => setOpen(false)} />
-            <NavLink to="/patterns" label="Tutorials" disableActive onClick={() => setOpen(false)} />
-            <NavLink to="/shop" label="Account" disableActive onClick={() => setOpen(false)} />
+            <NavLink to="/tutorials" label="Tutorials" onClick={() => setOpen(false)} />
+            <NavLink to="/account" label="Account" onClick={() => setOpen(false)} />
             <div className="h-px bg-[#e5d6da]" />
             <button className="w-full py-2.5 rounded-full bg-[#6B3A4E] text-white text-xs font-medium tracking-widest">
               View Cart
